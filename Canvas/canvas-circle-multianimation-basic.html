@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<style type="text/css">
+			canvas {
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body onload="loadCanvas();">
+		<canvas id="my-canvas" width="800" height="500"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d"),
+				initX = 100,
+				finalX = 750;
+				
+			function loadCanvas() {
+				drawCircle();
+			}
+			function drawCircle() {
+				context.clearRect(0,0,800,500);
+				//Circle 1
+				context.beginPath();
+				context.arc(initX,100,50,0,Math.PI*2);
+				context.closePath();
+				context.strokeStyle = "blue";
+				context.fillStyle = "#CCC";
+				context.fill();
+				context.stroke();
+				//Circle 2
+				context.beginPath();
+				context.arc(initX,250,50,0,Math.PI*2);
+				context.closePath();
+				context.strokeStyle = "pink";
+				context.fillStyle = "yellow";
+				context.fill();
+				context.stroke();
+				//Circle 3
+				context.beginPath();
+				context.arc(initX,400,50,0,Math.PI*2);
+				context.closePath();
+				context.strokeStyle = "orange";
+				context.fillStyle = "skyblue";
+				context.fill();
+				context.stroke();
+				if(initX < finalX) initX = initX+1;
+				requestAnimationFrame(drawCircle);
+			}
+			
+		</script>
+	</body>
+</html>

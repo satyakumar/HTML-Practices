@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<style type="text/css">
+			canvas {
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body onload="loadCanvas();">
+		<canvas id="my-canvas" width="800" height="500"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d");
+				
+			function loadCanvas() {
+				drawCircle();
+			}
+			function drawCircle() {
+				context.beginPath();
+				context.lineWidth = 10;
+				context.arc(400,250,50,0,Math.PI*2);
+				context.closePath();
+				context.strokeStyle = "#CCC";
+				context.fillStyle = "green";
+				context.fill();
+				context.stroke();
+			}
+		</script>
+	</body>
+</html>

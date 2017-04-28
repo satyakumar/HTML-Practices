@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Canvas Gradient</title>
+	</head>
+	<body>
+		<canvas id="my-canvas" width="800" height="500" style="border:2px solid blue;"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d");
+			var gd = context.createRadialGradient(400,250,10,400,250,250);
+			gd.addColorStop(0,"green");
+			gd.addColorStop(1,"pink");
+			context.fillStyle = gd;
+			context.fillRect(0,0,800,500);
+		</script>
+	</body>
+</html>

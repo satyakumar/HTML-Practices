@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Rounded ball</title>
+	</head>
+	<body onload="bouncing();">
+		<canvas id="my-canvas" width="800" height="600" style="border:2px solid orange;"></canvas>
+		<script type="text/javascript">
+			var context,initX=30,initY=30,x=7,y=7;
+			function bouncing() {
+				var canvas = document.getElementById("my-canvas");
+				context = canvas.getContext("2d");
+				setInterval(drawBall,20);
+			}
+			function drawBall() {
+				context.clearRect(0,0,800,600);
+				context.beginPath();
+				context.fillStyle = "green";
+				context.arc(initX,initX,20,0,Math.PI*2,true);
+				context.closePath();
+				context.fill();
+				if(initX < 0 || initX > 800) x -= x;
+				if(initY < 0 || initY > 600) y -= y;
+				initX += x;
+				initY += y;
+				
+				
+			}
+			
+		</script>
+	</body>
+</html>

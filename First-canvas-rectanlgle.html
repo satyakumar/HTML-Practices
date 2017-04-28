@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<title>HTML canvas</title>
+		<style type="text/css">
+			canvas {
+				border: 2px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="my-canvas" width="900" height="500">
+			<p>Your browser doesn’t currently support HTML5 Canvas.</p>
+		</canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d");
+			context.beginPath();
+			context.moveTo(200,200);	
+			context.lineTo(700,200);
+			context.lineTo(700,300);
+			context.lineTo(200,300);
+			context.lineTo(200,200);
+			context.stroke();
+			
+		</script>
+	</body>
+</html>
+</html>

@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Round circle</title>
+	</head>
+	<body>
+		<canvas id="my-canvas" width="800" height="600" style="border:2px solid blue;"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d"),
+				initX = 100,initY = 100,
+				x = 10,y=10;
+			setInterval(function() {
+					jump();
+				},200);	
+			function jump() {
+				context.clearRect(0,0,800,600);
+				context.beginPath();
+				context.arc(initX,initY,50,0,2*Math.PI);
+				context.fillStyle= 'green';
+				context.fill();
+				context.closePath();
+				context.stroke();
+				console.log(initX,initY)
+				if(initX === 800 || initY === 800) initX = 100;initY = 100;
+				initX += x;
+				initY += y;
+			}
+		</script>
+	</body>
+</html>

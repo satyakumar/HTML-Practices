@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Canvas Gradient</title>
+	</head>
+	<body onload="pageLoad();">
+		<canvas id="my-canvas" width="900" height="600" style="border:2px solid blue;"></canvas>
+		<script type="text/javascript">
+			function pageLoad() { // http://stackoverflow.com/questions/31457605/uncaught-typeerror-when-calling-drawimage-function
+				drawingImage();
+			}
+			var img = null;
+			function drawingImage() {
+				img = new Image();
+				img.src = "https://www.capgemini.com/sites/all/themes/capgemini/logo.png";
+				img.addEventListener('load',loadingImage);
+			}
+			function loadingImage() { 
+				var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d");
+				context.drawImage(img,400,300);
+			}
+		</script>
+	</body>
+</html>

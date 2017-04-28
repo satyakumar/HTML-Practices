@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<title>HTML Local Storage</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<input type="text">
+		<button>Add</button>
+		<br /><br /><br />
+        <div id="divDataLocalStorage"></div>
+        <br />
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			"use strict";
+			$(document).ready(function() { 
+				RetrieveFromLocalStorage();
+				$('button').on('click',function(e) { 
+					var inputVal = $("input").val(); 
+					SaveToLocalStorage(inputVal);
+				});
+				function SaveToLocalStorage(inputVal) { console.log(localStorage)
+					console.log(localStorage.setItem("item",inputVal));
+					localStorage["item"] = inputVal;
+					RetrieveFromLocalStorage();
+				}
+				function RetrieveFromLocalStorage() {
+					//var retrivedVal = 'None';
+					var retrivedValue = localStorage.getItem("item");
+					console.log(retrivedValue);
+					$("#divDataLocalStorage").text(retrivedValue);
+				}
+			});
+			
+		</script>
+	</body>
+</html>

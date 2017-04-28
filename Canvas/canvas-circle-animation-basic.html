@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<style type="text/css">
+			canvas {
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body onload="loadCanvas();">
+		<canvas id="my-canvas" width="800" height="500"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("my-canvas"),
+				context = canvas.getContext("2d"),
+				initX = 0,
+				finalX = 800;
+				
+			function loadCanvas() {
+				drawCircle();
+			}
+			function drawCircle() {
+				context.clearRect(0,0,800,500);
+				context.beginPath();
+				context.lineWidth = 10;
+				context.arc(initX,200,50,0,Math.PI*2);
+				context.closePath();
+				context.strokeStyle = "pink";
+				context.fillStyle = "blue";
+				context.fill();
+				context.stroke();
+				if(initX<finalX) initX = initX+1;
+				requestAnimationFrame(drawCircle);
+			}
+			
+		</script>
+	</body>
+</html>

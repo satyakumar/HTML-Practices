@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="utf-8">
+		<title>HTML Local Storage</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<input type="text">
+		<button>Add</button>
+		<br /><br /><br />
+        <div id="divDataLocalStorage"></div>
+        <br />
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			"use strict";
+			$(document).ready(function() { 
+				//localStorage.clear(); //localstorage-remove-clear-all-data
+				RetrieveFromLocalStorage();
+				$('button').on('click',function(e) { 
+					$("#divDataLocalStorage").text('');
+					var inputVal = $("input").val(); 
+					SaveToLocalStorage(inputVal);
+				});
+				function SaveToLocalStorage(inputVal) {
+					var key = localStorage.length,
+						key = key+1;
+					localStorage.setItem(JSON.stringify(key),inputVal);console.log(localStorage)
+					RetrieveFromLocalStorage();
+				}
+				function RetrieveFromLocalStorage() { 
+					console.log(localStorage);
+					for(var i = 1;i<=localStorage.length;i++) {
+						$("#divDataLocalStorage").append('<p>'+localStorage.getItem(i)+'</p>');
+					}
+				}
+			});
+			
+		</script>
+	</body>
+</html>
